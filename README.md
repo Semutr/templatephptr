@@ -18,18 +18,21 @@ $tema->render();	// ekrana bastır..
 ```
 
 # Tpl sayfasına ekleyiniz.
-
+```sh
 - <?php echo $title; ?>
 - <?php echo $yazi; ?>
-
+```
 # Kullanılan String çıktısı
+```sh
   - <?php echo $title; ?>
   - <?php echo $yazi; ?>
-
+```
 # Kullanılmayan String çıktısı !!!
+```sh
   - <?php echo $this->title; ?>
   - <?php echo $this->yazi; ?>
   - #title#
   - #yazi#
   - {$title}
   - {$yazi}
+```
