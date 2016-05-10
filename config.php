@@ -1,6 +1,6 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/github/');
+define('HTTP', 'http://localhost/template/');
 
 // Dizinler
 define('DIR_INC', 'C:\wamp\www\template/inc/');
