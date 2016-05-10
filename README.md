@@ -20,16 +20,14 @@ Not: template mantığı aşağıdaki şekildedir. Localhost ve web üzeri gör�
 - <?php echo $title; ?>
 - <?php echo $yazi; ?>
 
----------------------------------------
-
 # Kullanılan String çıktısı
-- <?php echo $title; ?>
-- <?php echo $yazi; ?>
+  - <?php echo $title; ?>
+  - <?php echo $yazi; ?>
 
 # Kullanılmayan String çıktısı !!!
-- <?php echo $this->title; ?>
-- <?php echo $this->yazi; ?>
-- #title#
-- #yazi#
-- {$title}
-- {$yazi}
+  - <?php echo $this->title; ?>
+  - <?php echo $this->yazi; ?>
+  - #title#
+  - #yazi#
+  - {$title}
+  - {$yazi}
