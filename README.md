@@ -22,6 +22,28 @@ $tema->render();	// ekrana bastır..
 - <?php echo $title; ?>
 - <?php echo $yazi; ?>
 ```
+
+# Ekstra * Bilgi Amaçlı *
+```sh
+
+  echo $title; // yerine
+  
+  if ($title) {
+    echo $title;
+  }else{
+    echo 'ben title';
+  }
+  
+  .....
+  
+  foreach($title as $baslik) {
+    echo $baslik;
+  }
+
+- Gibi stringden gelen verinin boş olması ve Sql veya diğer gelen verileri çoğaltma işlemi yapabilirsiniz.
+
+```
+
 # Kullanılan String çıktısı
 ```sh
   - <?php echo $title; ?>
