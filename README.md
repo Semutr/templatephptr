@@ -7,13 +7,15 @@ Not: template mantığı aşağıdaki şekildedir. Localhost ve web üzeri gör�
 - Template yanında benzersiz stringler kullanabilrisiniz. $tema->data['...'] gibi
 
 # Php sayfanıza ekleyiniz.
-  
-- $tema = new template('home.tpl');	// template aktarım yapıldı.
 
-- $tema->data['title'] = 'Ana Sayfa';	// sayfa adımız
-- $tema->data['yazi']  = 'Burası Ana sayfasıdır.';	// içerik yazımız
+```sh
+$tema = new template('home.tpl');	// template aktarım yapıldı.
 
-- $tema->render();	// ekrana bastır..
+$tema->data['title'] = 'Ana Sayfa';	// sayfa adımız
+$tema->data['yazi']  = 'Burası Ana sayfasıdır.';	// içerik yazımız
+
+$tema->render();	// ekrana bastır..
+```
 
 # Tpl sayfasına ekleyiniz.
 
