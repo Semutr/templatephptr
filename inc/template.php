@@ -4,31 +4,36 @@ class Template {
    protected $template;
 	
    public function __construct($template) {
-		$this->template = DIR_TPL . $template;
+	$this->template = DIR_TPL . $template;
+	
+	if (file_exists($this->template)) {
 		
-		if (file_exists($this->template)) {
-			
-			extract($this->data);
-			
-      		ob_start();
-      
-	  		include($this->template);
-      
-	  		$content = ob_get_contents();
+	extract($this->data);
+		
+      	ob_start();
 
-      		ob_end_clean();
+  	include($this->template);
 
-			return $content;
+  	$this->output = ob_get_contents();
+
+      	ob_end_clean();
+
+	return $this->output;
 			
-    	} else {
-			trigger_error('Hata: Tema yüklenemedi '. $this->template .'!');
-			exit();	
+    } else {
+	trigger_error('Hata: Tema yüklenemedi '. $this->template .'!');
+	exit();	
     	}
    }
+   
    // template verileri yazdır
    public function render() {
-  		extract($this->data);
-  		require($this->template);
+	extract($this->data);
+	ob_start();
+	require($this->template);
+	$this->output = ob_get_contents();
+	ob_end_clean();
+	return $this->output;
    }
 }
 ?>
