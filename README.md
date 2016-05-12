@@ -11,8 +11,8 @@ Not: template mantığı aşağıdaki şekildedir. Localhost ve web üzeri gör�
 ```sh
 $tema = new template('home.tpl');	// template aktarım yapıldı.
 
-$tema->data['title'] = 'Ana Sayfa';	// sayfa adımız
-$tema->data['yazi']  = 'Burası Ana sayfasıdır.';	// içerik yazımız
+$tema->data['title']  = 'Ana Sayfa';	// sayfa adımız
+$tema->data['yazi']   = 'Burası Ana sayfasıdır.';	// içerik yazımız
 
 $tema->render();	// ekrana bastır..
 ```
@@ -21,6 +21,39 @@ $tema->render();	// ekrana bastır..
 ```sh
 - <?php echo $title; ?>
 - <?php echo $yazi; ?>
+```
+
+# Ekstra Şekillendirme * Bilmeyenler için *
+
+```sh
+$tema = new template('home.tpl');	// template aktarım yapıldı.
+
+$arr = array();
+$sql = mysql_query('SELECT * FROM `urunler` where `id`'); // db işlevi yapıldı
+  while($cek=mysql_fetch_array($sql)) { 
+  	$arr[] = $cek;
+  }
+
+
+$tema->data['title']  = 'Ana Sayfa';	// sayfa adımız
+$tema->data['yazi']   = 'Burası Ana sayfasıdır.';	// içerik yazımız
+
+$tema->data['urunler']= $arr; // bu string tpl sayfamıza gönderdik. 
+
+$tema->render();	// ekrana bastır..
+
+----- TPL SAYFAMIZ ----
+
+<?php echo $title; ?>
+<?php echo $yazi; ?>
+
+// ürünleri tekrarladık. Daha fazla işlevler kullanabilirsiniz.
+
+<?php foreach ($urunler as $uruns) { ?>
+  <li><a href="<?php echo $uruns['url']; ?>"><img src="<?php echo $uruns['logo']; ?>" alt="<?php echo $uruns['title']; ?>"/></a></li>
+<?php } ?>
+
+
 ```
 
 # Ekstra * Bilgi Amaçlı *
@@ -36,7 +69,7 @@ $tema->render();	// ekrana bastır..
   
   .....
   
-  foreach($title as $baslik) {
+  foreach($title as $baslik) { // sadece db ile yapılabilir.
     echo $baslik;
   }
 
@@ -44,12 +77,12 @@ $tema->render();	// ekrana bastır..
 
 ```
 
-# Kullanılan String çıktısı
+# Kullanılan String
 ```sh
   - <?php echo $title; ?>
   - <?php echo $yazi; ?>
 ```
-# Kullanılmayan String çıktısı !!!
+# Kullanılmayan String !!!
 ```sh
   - <?php echo $this->title; ?>
   - <?php echo $this->yazi; ?>
